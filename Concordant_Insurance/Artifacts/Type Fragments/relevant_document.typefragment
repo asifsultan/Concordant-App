@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsAspect:Aspect xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAspect="http://xcp.emc.com/aspect" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" urn="urn:cia:com.emc.xcp.artifact.aspect:Artifacts/Type Fragments/relevant_document.typefragment" categoryId="com.emc.xcp.artifact.aspect" name="relevant_document" label="Relevant Document">
+  <attributes name="date_marked" label="Date Marked">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="marked_by" label="Marked By">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="relevant" label="Relevant">
+    <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+  </attributes>
+</nsAspect:Aspect>

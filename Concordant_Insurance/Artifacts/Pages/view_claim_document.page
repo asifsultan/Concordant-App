@@ -295,6 +295,27 @@
             <properties name="margins" value=""/>
             <properties name="xcpId" value="columnvbox2"/>
             <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel"/>
+              <properties name="valueType" value="HTML"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="ifThenElse(claim_documents.fragments.relevant_document.relevant, '&lt;img src=&quot;Artifacts/Resources/bird.png&quot;/>', '')"/>
+              <properties name="xcpId" value="marked"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
               <properties name="fieldLabel" value="Name"/>
               <properties name="valueType" value="STRING"/>
               <properties name="isRepeating" value="false" type="BOOLEAN"/>

@@ -16,7 +16,7 @@
     <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
   </attributes>
   <accessControlPolicy inheritedFromParentFolder="true"/>
-  <defaultFolderPath exprStr="'/Concordant-app-data'"/>
+  <defaultFolderPath exprStr="'/Insurance'"/>
   <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_policy" label="Create Policy" implCategoryId="com.emc.xcp.artifact.bo">
     <inputs xsi:type="nsDataserviceContract:AttributeElement" name="address_line" label="Address">
       <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
