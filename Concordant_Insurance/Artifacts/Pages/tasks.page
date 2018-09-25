@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/tasks.page" categoryId="com.emc.xcp.artifact.page" name="tasks" label="Tasks" templateType="application">
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="queue_claims" label="Queue Claims">
+    <inputMappings name="workqueue">
+      <expression exprStr="parameters.cia.calim_work_queues"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:cia:com.emc.xcp.artifact.search.tasklist:Artifacts/Task-list Queries/queue_claims.tasklist#//@datasource"/>
+  </dataSources>
+  <actionInstanceProperty actionInstance="//@dataSources[name='queue_claims']"/>
+  <title exprStr="Tasks"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title"/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="150" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox1"/>
+        <children componentDefinitionId="xcp_button" dataService="//@dataSources[name='queue_claims']">
+          <properties name="text" value="Refresh"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="actionType" value="datasource"/>
+              <properties name="autoLoad" value="true" type="BOOLEAN"/>
+              <properties name="pageSize" value="10" type="INTEGER"/>
+              <properties name="outputType" value="Array"/>
+              <properties name="fetchPermissionMetadata" value="false"/>
+              <properties name="includeLWSOInstances" value="false"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="refresh"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list" dataService="//@dataSources[name='queue_claims']">
+      <properties name="title" value=""/>
+      <properties name="typeName" value=""/>
+      <properties name="modelName" value=""/>
+      <properties name="storeId" value=""/>
+      <properties name="initParams" value=""/>
+      <properties name="selectionModelName" value=""/>
+      <properties name="pageSize" value="10" type="INTEGER"/>
+      <properties name="hidden" value=""/>
+      <properties xsi:type="uitemplate:ArrayProperty" name="facets"/>
+      <properties xsi:type="uitemplate:ArrayProperty" name="facetLabels"/>
+      <properties name="selectionModel" value="false" type="BOOLEAN"/>
+      <properties name="cls" value=""/>
+      <properties name="enableDragDrop" value="false" type="BOOLEAN"/>
+      <properties name="disableNavigationOnFirstColumn" value="false" type="BOOLEAN"/>
+      <properties name="hideContextMenu" value=""/>
+      <properties name="allowDeselect" value="false" type="BOOLEAN"/>
+      <properties name="displayTotalRowCount" value="false" type="BOOLEAN"/>
+      <properties name="autoTotalCount" value="true" type="BOOLEAN"/>
+      <properties name="totalRowCountExpression" value=""/>
+      <properties name="autoSelection" value="false" type="BOOLEAN"/>
+      <properties name="pageSizeList" value="10,25,50,100"/>
+      <properties name="stateful" value="false" type="BOOLEAN"/>
+      <properties name="stateid" value=""/>
+      <properties name="setFacets" value=""/>
+      <properties name="allowInLineEdit" value="false" type="BOOLEAN"/>
+      <properties name="dataSourceType" value=""/>
+      <properties name="dataInstance" value=""/>
+      <properties name="modelStore" value="dataservices.queue_claims"/>
+      <properties name="width" value="" type="INTEGER"/>
+      <properties name="height" value="" type="INTEGER"/>
+      <properties name="hideadd" value=""/>
+      <properties name="hideremove" value=""/>
+      <properties name="hidemovebtn" value=""/>
+      <properties name="disableadd" value=""/>
+      <properties name="disableremove" value=""/>
+      <properties name="disablemovebtn" value=""/>
+      <properties name="xcpId" value="tasks"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_page_link_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Task Name"/>
+        <properties name="width" value="150" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="STRING"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="task_name"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter/>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_task_name"/>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Sent Date"/>
+        <properties name="width" value="150" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="DATETIME"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="task_date_sent"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter componentDefinitionId="xcp_datetime_formatter">
+            <properties name="xtype" value="xcp_datetime_formatter"/>
+            <properties name="dateFormat" value="short"/>
+            <properties name="timeFormat" value="short"/>
+            <properties name="dateStyle" value="datetime"/>
+          </formatter>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_task_date_sent"/>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Name"/>
+        <properties name="width" value="150" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="STRING"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="packagesclaimobject_name"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter/>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_packagesclaimobject_name"/>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Amount"/>
+        <properties name="width" value="150" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="FLOAT"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="packagesclaimamount"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter componentDefinitionId="xcp_float_formatter">
+            <properties name="xtype" value="xcp_float_formatter"/>
+            <properties name="decimalPrecision" value="2" type="INTEGER"/>
+            <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+            <properties name="separatorStyle" value="LOCALE"/>
+            <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+          </formatter>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_packagesclaimamount"/>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Claim Status"/>
+        <properties name="width" value="150" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="xcp.picklist.cia_claim_status"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="packagesclaimclaim_status"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter componentDefinitionId="xcp_integer_formatter">
+            <properties name="xtype" value="xcp_integer_formatter"/>
+            <properties name="decimalPrecision" value="0" type="INTEGER"/>
+            <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+            <properties name="separatorStyle" value="LOCALE"/>
+            <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+          </formatter>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_packagesclaimclaim_status"/>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='queue_claims']">
+        <properties name="text" value="Last Name"/>
+        <properties name="width" value="" type="INTEGER"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="valueExpr" value=""/>
+        <properties name="valueType" value="STRING"/>
+        <properties name="isRepeating" value="false" type="BOOLEAN"/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+          <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+            <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+            <properties name="separatorStyle" value="NEWLINE"/>
+            <properties name="separator" value="COMMA"/>
+          </formatter>
+        </properties>
+        <properties name="sortable" value="false" type="BOOLEAN"/>
+        <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+        <properties name="hidden" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="dataIndex" value="packagespolicylast_name"/>
+        <properties name="hideable" value="true" type="BOOLEAN"/>
+        <properties name="resizable" value="true" type="BOOLEAN"/>
+        <properties name="draggable" value="true" type="BOOLEAN"/>
+        <properties name="parentxcpId" value="tasks"/>
+        <properties name="stateful" value="false" type="BOOLEAN"/>
+        <properties name="imageSourceExpr" value=""/>
+        <properties name="imageSource" value=""/>
+        <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+        <properties name="imagewidth" value="" type="INTEGER"/>
+        <properties name="imageheight" value="" type="INTEGER"/>
+        <properties name="navType" value="none"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter/>
+        </properties>
+        <properties name="navPageIdExpr" value=""/>
+        <properties name="navUrlExpr" value=""/>
+        <properties name="navObjectId" value=""/>
+        <properties name="navToNewTab" value="" type="BOOLEAN"/>
+        <properties name="navNewTabTarget" value=""/>
+        <properties name="navUrlParams" value=""/>
+        <properties name="xcpId" value="col_packagespolicylast_name"/>
+      </children>
+    </children>
+  </rootContainer>
+</uitemplate:Page>

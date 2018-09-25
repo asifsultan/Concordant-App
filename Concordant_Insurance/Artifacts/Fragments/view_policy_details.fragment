@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Fragment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.fragment:Artifacts/Fragments/view_policy_details.fragment" categoryId="com.emc.xcp.artifact.fragment" name="view_policy_details" label="View Policy Details" templateType="business_object" templateScope="INSTANCE">
+  <title exprStr="View Policy Details"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children componentDefinitionId="xcp_value_display">
+      <properties name="fieldLabel" value="First Name"/>
+      <properties name="valueType" value="STRING"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN"/>
+      <properties name="name" value=""/>
+      <properties name="cls" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+          <properties name="separatorStyle" value="NEWLINE"/>
+          <properties name="separator" value="COMMA"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN"/>
+      <properties name="store" value=""/>
+      <properties name="hidden" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.first_name">
+        <eventBasedExpressions>
+          <expression exprStr="policy.first_name"/>
+        </eventBasedExpressions>
+      </properties>
+      <properties xsi:type="uitemplate:ObjectProperty" name="format">
+        <formatter/>
+      </properties>
+      <properties name="xcpId" value="first_name"/>
+    </children>
+    <children componentDefinitionId="xcp_value_display">
+      <properties name="fieldLabel" value="Last Name"/>
+      <properties name="valueType" value="STRING"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN"/>
+      <properties name="name" value=""/>
+      <properties name="cls" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+          <properties name="separatorStyle" value="NEWLINE"/>
+          <properties name="separator" value="COMMA"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN"/>
+      <properties name="store" value=""/>
+      <properties name="hidden" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.last_name">
+        <eventBasedExpressions>
+          <expression exprStr="policy.last_name"/>
+        </eventBasedExpressions>
+      </properties>
+      <properties xsi:type="uitemplate:ObjectProperty" name="format">
+        <formatter/>
+      </properties>
+      <properties name="xcpId" value="last_name"/>
+    </children>
+    <children componentDefinitionId="xcp_value_display">
+      <properties name="fieldLabel" value="End Date"/>
+      <properties name="valueType" value="DATETIME"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN"/>
+      <properties name="name" value=""/>
+      <properties name="cls" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+          <properties name="separatorStyle" value="NEWLINE"/>
+          <properties name="separator" value="COMMA"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN"/>
+      <properties name="store" value=""/>
+      <properties name="hidden" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.end_date" type="DATETIME">
+        <eventBasedExpressions>
+          <expression exprStr="policy.end_date"/>
+        </eventBasedExpressions>
+      </properties>
+      <properties xsi:type="uitemplate:ObjectProperty" name="format">
+        <formatter componentDefinitionId="xcp_datetime_formatter">
+          <properties name="xtype" value="xcp_datetime_formatter"/>
+          <properties name="dateFormat" value="short"/>
+          <properties name="timeFormat" value="short"/>
+          <properties name="dateStyle" value="datetime"/>
+        </formatter>
+      </properties>
+      <properties name="xcpId" value="end_date"/>
+    </children>
+    <children componentDefinitionId="xcp_value_display">
+      <properties name="fieldLabel" value="Coverage"/>
+      <properties name="valueType" value="FLOAT"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN"/>
+      <properties name="name" value=""/>
+      <properties name="cls" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+          <properties name="separatorStyle" value="NEWLINE"/>
+          <properties name="separator" value="COMMA"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN"/>
+      <properties name="store" value=""/>
+      <properties name="hidden" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.coverage" type="FLOAT">
+        <eventBasedExpressions>
+          <expression exprStr="policy.coverage"/>
+        </eventBasedExpressions>
+      </properties>
+      <properties xsi:type="uitemplate:ObjectProperty" name="format">
+        <formatter componentDefinitionId="xcp_float_formatter">
+          <properties name="xtype" value="xcp_float_formatter"/>
+          <properties name="decimalPrecision" value="2" type="INTEGER"/>
+          <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+          <properties name="separatorStyle" value="LOCALE"/>
+          <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+        </formatter>
+      </properties>
+      <properties name="xcpId" value="coverage"/>
+    </children>
+    <children componentDefinitionId="xcp_value_display">
+      <properties name="fieldLabel" value="Address"/>
+      <properties name="valueType" value="STRING"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN"/>
+      <properties name="name" value=""/>
+      <properties name="cls" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+          <properties name="separatorStyle" value="NEWLINE"/>
+          <properties name="separator" value="COMMA"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN"/>
+      <properties name="store" value=""/>
+      <properties name="hidden" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.address_line">
+        <eventBasedExpressions>
+          <expression exprStr="policy.address_line"/>
+        </eventBasedExpressions>
+      </properties>
+      <properties xsi:type="uitemplate:ObjectProperty" name="format">
+        <formatter/>
+      </properties>
+      <properties name="xcpId" value="address_line"/>
+    </children>
+    <children componentDefinitionId="xcp_button">
+      <properties name="text" value="Open Last Policy"/>
+      <properties name="scale" value="small"/>
+      <properties name="badgeText" value=""/>
+      <properties name="badgeAlign" value="top-right"/>
+      <properties name="imageSource" value=""/>
+      <properties name="glyph" value=""/>
+      <properties name="iconAlign" value="left"/>
+      <properties name="tooltip" value=""/>
+      <properties xsi:type="uitemplate:ObjectProperty" name="action">
+        <action>
+          <properties name="actionType" value="xcp_gotopage"/>
+          <properties name="navType" value="page_static"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_edit_policy">
+            <data selectionName="edit_policy" selectionLabel="Edit Policy">
+              <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/edit_policy.page#/"/>
+            </data>
+          </properties>
+          <properties name="navObjectId" value="sessionparameters.cia.last_policy_id"/>
+        </action>
+      </properties>
+      <properties name="width" value="" type="INTEGER"/>
+      <properties name="height" value="" type="INTEGER"/>
+      <properties name="cls" value=""/>
+      <properties name="disabled" value=""/>
+      <properties name="hidden" value="">
+        <eventBasedExpressions>
+          <expression exprStr="sessionparameters.cia.last_policy_id==''"/>
+          <conditionTrigger exprStr=""/>
+        </eventBasedExpressions>
+      </properties>
+      <properties name="xcpId" value="open_last_policy"/>
+    </children>
+  </rootContainer>
+  <primaryModel href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+  <hidden>
+    <expression/>
+  </hidden>
+  <inputs name="id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+  <inputs xsi:type="uitemplate:CompositeFragmentAttribute" name="model">
+    <type xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+    </type>
+    <value>
+      <expression/>
+    </value>
+    <attributeValues name="first_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="last_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="address_line">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="coverage">
+      <type xsi:type="nsAttributeDatatypes:FloatType"/>
+    </attributeValues>
+    <attributeValues name="end_date">
+      <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </attributeValues>
+    <attributeValues name="object_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="a_is_hidden">
+      <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </attributeValues>
+    <attributeValues name="acl_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="acl_domain">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+  </inputs>
+</uitemplate:Fragment>

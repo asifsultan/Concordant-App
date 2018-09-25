@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/application_master.page" categoryId="com.emc.xcp.artifact.page" name="application_master" label="Master" templateType="application_master">
+  <title exprStr="appmaster_defpage"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value=""/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value="xcp-master-header"/>
+      <properties name="xcpId" value="column_box"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnhbox">
+        <properties name="orientation" value="Horizontal"/>
+        <properties name="width" value="100%"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="labelWidth" value="50" type="INTEGER"/>
+        <properties name="defaultMargins" value="0"/>
+        <properties name="margins" value="0"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="bottom"/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnhbox"/>
+        <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_navigation_menu">
+          <properties name="orientation" value="horizontal"/>
+          <properties name="xcp_menu_onhover" value="true" type="BOOLEAN"/>
+          <properties name="autoHeight" value="" type="BOOLEAN"/>
+          <properties name="autoScroll" value="" type="BOOLEAN"/>
+          <properties name="autoWidth" value="" type="BOOLEAN"/>
+          <properties name="enableOverflow" value="true" type="BOOLEAN"/>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="buttonAlign" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="xcpId" value="navigation_menu"/>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button">
+            <properties name="text" value="Policies"/>
+            <properties name="iconCls" value=""/>
+            <properties name="hidden" value=""/>
+            <properties name="disabled" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="navType" value="none"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="policies"/>
+            <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_menu">
+              <properties name="xcpId" value="menu"/>
+              <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_menuitem">
+                <properties name="text" value="New Policy"/>
+                <properties name="iconCls" value=""/>
+                <properties name="hidden" value=""/>
+                <properties name="disabled" value=""/>
+                <properties name="cls" value=""/>
+                <properties name="navType" value="page_static"/>
+                <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_create_policy">
+                  <data selectionName="create_policy" selectionLabel="Create Policy">
+                    <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/create_policy.page#/"/>
+                  </data>
+                </properties>
+                <properties name="navPageIdExpr" value=""/>
+                <properties name="navUrlExpr" value=""/>
+                <properties name="navObjectId" value=""/>
+                <properties name="navToNewTab" value="" type="BOOLEAN"/>
+                <properties name="navNewTabTarget" value=""/>
+                <properties name="navUrlParams" value=""/>
+                <properties name="xcpId" value="new_policy"/>
+              </children>
+              <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_menuitem">
+                <properties name="text" value="Policy Search"/>
+                <properties name="iconCls" value=""/>
+                <properties name="hidden" value=""/>
+                <properties name="disabled" value=""/>
+                <properties name="cls" value=""/>
+                <properties name="navType" value="page_static"/>
+                <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_policy_search">
+                  <data selectionName="policy_search" selectionLabel="Policy Search">
+                    <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/policy_search.page#/"/>
+                  </data>
+                </properties>
+                <properties name="navPageIdExpr" value=""/>
+                <properties name="navUrlExpr" value=""/>
+                <properties name="navObjectId" value=""/>
+                <properties name="navToNewTab" value="" type="BOOLEAN"/>
+                <properties name="navNewTabTarget" value=""/>
+                <properties name="navUrlParams" value=""/>
+                <properties name="xcpId" value="policy_search"/>
+              </children>
+              <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_menuitem">
+                <properties name="text" value="User Management"/>
+                <properties name="iconCls" value=""/>
+                <properties name="hidden" value=""/>
+                <properties name="disabled" value=""/>
+                <properties name="cls" value=""/>
+                <properties name="navType" value="page_static"/>
+                <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_manage_app_role">
+                  <data selectionName="manage_app_role" selectionLabel="Manage Application Roles">
+                    <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/manage_app_role.page#/"/>
+                  </data>
+                </properties>
+                <properties name="navPageIdExpr" value=""/>
+                <properties name="navUrlExpr" value=""/>
+                <properties name="navObjectId" value=""/>
+                <properties name="navToNewTab" value="" type="BOOLEAN"/>
+                <properties name="navNewTabTarget" value=""/>
+                <properties name="navUrlParams" value=""/>
+                <properties name="xcpId" value="manage_users"/>
+              </children>
+            </children>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button">
+            <properties name="text" value="Tasks"/>
+            <properties name="iconCls" value=""/>
+            <properties name="hidden" value=""/>
+            <properties name="disabled" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="navType" value="page_static"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_tasks">
+              <data selectionName="tasks" selectionLabel="Tasks">
+                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/tasks.page#/"/>
+              </data>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="tasks"/>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button">
+            <properties name="text" value="Document Search"/>
+            <properties name="iconCls" value=""/>
+            <properties name="hidden" value=""/>
+            <properties name="disabled" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="navType" value="page_static"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_claim_document_sear">
+              <data selectionName="claim_document_sear" selectionLabel="Claim Document Search">
+                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/claim_document_sear.page#/"/>
+              </data>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="search"/>
+          </children>
+          <children componentDefinitionId="xcp_user_button">
+            <properties name="cls" value=""/>
+            <properties name="xcpId" value="user_button"/>
+          </children>
+        </children>
+      </children>
+    </children>
+    <children componentDefinitionId="xcp_page">
+      <properties name="cls" value="xcp-content-area"/>
+      <properties name="margin" value="0 0 0 0"/>
+      <properties name="width" value="" type="INTEGER"/>
+      <properties name="height" value="" type="INTEGER"/>
+      <properties name="xcpId" value="page"/>
+    </children>
+  </rootContainer>
+</uitemplate:Page>

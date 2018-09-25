@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Fragment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.fragment:Artifacts/Fragments/correspondance_imp.fragment" categoryId="com.emc.xcp.artifact.fragment" name="correspondance_imp" label="Correspondance_imp" templateType="document">
+  <title exprStr="Correspondance_imp"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+      <properties name="orientation" value="Vertical"/>
+      <properties name="width" value="100%"/>
+      <properties name="minWidth" value="" type="INTEGER"/>
+      <properties name="split" value="true" type="BOOLEAN"/>
+      <properties name="overflow_x" value="hidden"/>
+      <properties name="labelWidth" value="150" type="INTEGER"/>
+      <properties name="labelAlign" value="left"/>
+      <properties name="halign" value="left"/>
+      <properties name="valign" value="top"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="tooltip" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="columnvbox"/>
+      <children componentDefinitionId="xcp_text_input">
+        <properties name="fieldLabel" value="Name"/>
+        <properties name="emptyText" value=""/>
+        <properties name="name" value=""/>
+        <properties name="hstretch" value="true" type="BOOLEAN"/>
+        <properties name="fieldWidth" value="" type="INTEGER"/>
+        <properties name="readOnly" value=""/>
+        <properties name="hidden" value=""/>
+        <properties name="valueType" value="STRING"/>
+        <properties name="inputType" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="mandatory" value="true"/>
+        <properties name="hideErrorInToolTip" value="true" type="BOOLEAN"/>
+        <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+        <properties name="tooltip" value=""/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="value" value="Inputs.object_name">
+          <eventBasedExpressions>
+            <expression exprStr="Inputs.object_name"/>
+          </eventBasedExpressions>
+        </properties>
+        <properties name="valid" value="">
+          <validationExpressions validationError="The name of the document is too long">
+            <expression exprStr="length(widgets.object_name.value)&lt;=32"/>
+            <widgetEvent widgetId="object_name" eventName="change"/>
+          </validationExpressions>
+        </properties>
+        <properties name="xcpId" value="object_name"/>
+      </children>
+      <children componentDefinitionId="xcp_date_time_input">
+        <properties name="fieldLabel" value="Corresponding Date"/>
+        <properties name="emptyText" value=""/>
+        <properties name="name" value=""/>
+        <properties name="hstretch" value="true" type="BOOLEAN"/>
+        <properties name="fieldWidth" value="" type="INTEGER"/>
+        <properties name="disabled" value=""/>
+        <properties name="hidden" value=""/>
+        <properties name="valueType" value="DATETIME"/>
+        <properties name="cls" value=""/>
+        <properties name="mandatory" value="true"/>
+        <properties name="hideErrorInToolTip" value="true" type="BOOLEAN"/>
+        <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+        <properties name="tooltip" value=""/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="value" value="correspondance.corresponding_date" type="DATETIME">
+          <eventBasedExpressions>
+            <expression exprStr="correspondance.corresponding_date"/>
+          </eventBasedExpressions>
+        </properties>
+        <properties xsi:type="uitemplate:ObjectProperty" name="format">
+          <formatter componentDefinitionId="xcp_datetime_formatter">
+            <properties name="xtype" value="xcp_datetime_formatter"/>
+            <properties name="dateFormat" value="short"/>
+            <properties name="timeFormat" value="short"/>
+            <properties name="dateStyle" value="datetime"/>
+          </formatter>
+        </properties>
+        <properties name="valid" value=""/>
+        <properties name="xcpId" value="corresponding_date"/>
+      </children>
+      <children componentDefinitionId="xcp_error_display_widget">
+        <properties name="title" value="Errors"/>
+        <properties name="errorMessages" value="" isEventBased="true">
+          <eventBasedExpressions>
+            <expression exprStr="widgets.object_name.invalidMessage"/>
+            <widgetEvent widgetId="object_name" eventName="validitystatechange"/>
+          </eventBasedExpressions>
+          <eventBasedExpressions>
+            <expression exprStr="widgets.corresponding_date.invalidMessage"/>
+            <widgetEvent widgetId="corresponding_date" eventName="validitystatechange"/>
+          </eventBasedExpressions>
+        </properties>
+        <properties name="hidden" value=""/>
+        <properties name="cls" value="xcp-error-display-area"/>
+        <properties name="margin" value="0 0 0 0"/>
+        <properties name="width" value="" type="INTEGER"/>
+        <properties name="height" value="" type="INTEGER"/>
+        <properties name="showErrorsFromPristine" value="false" type="BOOLEAN"/>
+        <properties name="disableAutoShow" value="false" type="BOOLEAN"/>
+        <properties name="xcpId" value="error_display_widget"/>
+      </children>
+    </children>
+  </rootContainer>
+  <primaryModel href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/correspondance.content#/"/>
+  <hidden>
+    <expression/>
+  </hidden>
+  <inputs name="content_type">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+  <inputs name="content_format">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+  <inputs name="folder_path" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+  <inputs name="object_name">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+  <outputs xsi:type="uitemplate:CompositeFragmentAttribute" name="model">
+    <type xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:Document" href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/correspondance.content#/"/>
+    </type>
+    <value>
+      <expression exprStr="correspondance"/>
+    </value>
+    <attributeValues name="object_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+      <value>
+        <expression exprStr="widgets.object_name.value"/>
+      </value>
+    </attributeValues>
+    <attributeValues name="corresponding_date">
+      <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      <value>
+        <expression exprStr="widgets.corresponding_date.value"/>
+      </value>
+    </attributeValues>
+    <attributeValues name="a_status">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="a_content_type">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+      <value>
+        <expression exprStr="Inputs.content_format"/>
+      </value>
+    </attributeValues>
+    <attributeValues name="authors" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="keywords" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="subject">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="title">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="a_is_hidden">
+      <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </attributeValues>
+    <attributeValues name="acl_name">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="acl_domain">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="r_folder_path" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+      <value>
+        <expression exprStr="Inputs.folder_path"/>
+      </value>
+    </attributeValues>
+    <attributeValues name="email" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="business" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+    <attributeValues name="phone" repeating="true">
+      <type xsi:type="nsAttributeDatatypes:StringType"/>
+    </attributeValues>
+  </outputs>
+</uitemplate:Fragment>

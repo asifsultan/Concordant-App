@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:UIStep xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/vehicle_create_an_1.uistep" categoryId="com.emc.xcp.artifact.uistep" name="vehicle_create_an_1" label="Step 2" templateType="uistep">
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title"/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="150" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox"/>
+        <children componentDefinitionId="xcp_rich_text">
+          <properties name="html" value="&lt;b>Enter the start and end dates of the cover for this vehicle and click Next&lt;/b>"/>
+          <properties name="cls"/>
+          <properties name="hidden" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="rich_text"/>
+        </children>
+        <children componentDefinitionId="xcp_date_time_input">
+          <properties name="fieldLabel" value="Start Date"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="DATETIME"/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value="actionflow.steps.vehicle_create_and_.widgets.temporary.value"/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_datetime_formatter">
+              <properties name="xtype" value="xcp_datetime_formatter"/>
+              <properties name="dateFormat" value="short"/>
+              <properties name="timeFormat" value="short"/>
+              <properties name="dateStyle" value="date"/>
+            </formatter>
+          </properties>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="start_date"/>
+        </children>
+        <children componentDefinitionId="xcp_date_time_input">
+          <properties name="fieldLabel" value="End Date"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="DATETIME"/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value="actionflow.steps.vehicle_create_and_.widgets.temporary.value"/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_datetime_formatter">
+              <properties name="xtype" value="xcp_datetime_formatter"/>
+              <properties name="dateFormat" value="short"/>
+              <properties name="timeFormat" value="short"/>
+              <properties name="dateStyle" value="date"/>
+            </formatter>
+          </properties>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="end_date"/>
+        </children>
+        <children componentDefinitionId="xcp_text_area">
+          <properties name="fieldLabel" value="Notes"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="readOnly" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="height" value="60" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="notes"/>
+        </children>
+      </children>
+    </children>
+  </rootContainer>
+  <primaryModel href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/vehicle.businessobj#/"/>
+</actionflow:UIStep>

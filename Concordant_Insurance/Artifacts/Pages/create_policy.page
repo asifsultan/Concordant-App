@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/create_policy.page" categoryId="com.emc.xcp.artifact.page" name="create_policy" label="Create Policy" templateType="business_object">
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_create_policy" label="Create Policy">
+    <inputMappings name="coverage">
+      <expression exprStr="widgets.coverage.value"/>
+    </inputMappings>
+    <inputMappings name="end_date">
+      <expression exprStr="widgets.end_date.value"/>
+    </inputMappings>
+    <inputMappings name="address_line">
+      <expression exprStr="widgets.address_line.value"/>
+    </inputMappings>
+    <inputMappings name="last_name">
+      <expression exprStr="toUpper(widgets.last_name.value)"/>
+    </inputMappings>
+    <inputMappings name="first_name">
+      <expression exprStr="toUpper(widgets.first_name.value)"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="widgets.first_name.value + ' ' + widgets.last_name.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#//@dataActionContracts[name='da_def_create_policy']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_create_policy']"/>
+  <title exprStr="Create Policy"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value=""/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="150" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox"/>
+        <children componentDefinitionId="xcp_text_input">
+          <properties name="fieldLabel" value="First Name"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="readOnly" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="inputType" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value="true"/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.first_name"/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="first_name"/>
+        </children>
+        <children componentDefinitionId="xcp_text_input">
+          <properties name="fieldLabel" value="Last Name"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="readOnly" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="inputType" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value="true"/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.last_name"/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="last_name"/>
+        </children>
+        <children componentDefinitionId="xcp_text_input">
+          <properties name="fieldLabel" value="Address"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="readOnly" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="inputType" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.address_line"/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="address_line"/>
+        </children>
+        <children componentDefinitionId="xcp_number_input">
+          <properties name="fieldLabel" value="Coverage"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="allowDecimals" value="true" type="BOOLEAN"/>
+          <properties name="hideTrigger" value="true" type="BOOLEAN"/>
+          <properties name="keyNavEnabled" value="false" type="BOOLEAN"/>
+          <properties name="mouseWheelEnabled" value="false" type="BOOLEAN"/>
+          <properties name="autoStripChars" value="true" type="BOOLEAN"/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="readOnly" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="FLOAT"/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.coverage" type="FLOAT"/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="coverage"/>
+        </children>
+        <children componentDefinitionId="xcp_date_time_input">
+          <properties name="fieldLabel" value="End Date"/>
+          <properties name="emptyText" value=""/>
+          <properties name="name" value=""/>
+          <properties name="hstretch" value="true" type="BOOLEAN"/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="valueType" value="DATETIME"/>
+          <properties name="cls" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="policy.end_date" type="DATETIME"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_datetime_formatter">
+              <properties name="xtype" value="xcp_datetime_formatter"/>
+              <properties name="dateFormat" value="short"/>
+              <properties name="timeFormat" value="short"/>
+              <properties name="dateStyle" value="datetime"/>
+            </formatter>
+          </properties>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="end_date"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value=""/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box1"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnhbox">
+        <properties name="orientation" value="Horizontal"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="labelWidth" value="50" type="INTEGER"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="right"/>
+        <properties name="valign" value="top"/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnhbox"/>
+        <children componentDefinitionId="xcp_button" dataService="//@dataActions[name='da_def_create_policy']">
+          <properties name="text" value="Create"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="redirectStyle" value="specified"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="page_static"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_policy_search">
+                <data selectionName="policy_search" selectionLabel="Policy Search">
+                  <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/policy_search.page#/"/>
+                </data>
+              </properties>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button"/>
+        </children>
+      </children>
+    </children>
+  </rootContainer>
+  <primaryModel href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+</uitemplate:Page>

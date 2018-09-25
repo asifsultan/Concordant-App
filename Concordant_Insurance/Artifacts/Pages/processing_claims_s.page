@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/processing_claims_s.page" categoryId="com.emc.xcp.artifact.page" name="processing_claims_s" label="Processing Claims Second Approval" templateType="process" templateScope="INSTANCE">
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="taskhistory_initiate_staless_ds" label="Task History">
+    <inputMappings name="processVariables.process_instance_id">
+      <expression exprStr="processing_claims_second_approval.executionData.taskworkflow.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:xcp:com.emc.ide.artifact.process:Artifacts/Processes/taskhistory.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='taskhistory_initiate_staless_ds']"/>
+  </dataSources>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_acquire_currenttask" label="Acquire Current Task">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/currentTask.task#//@dataActionContracts.0/@value"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_update_processing_claims_first_approval" label="Update task First Approval (Processing Claims)">
+    <inputMappings name="processPackages.policy.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.response">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_date">
+      <expression exprStr="widgets.inciden_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.vehicle_in_motion">
+      <expression exprStr="widgets.vehicle_in_motion.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.amount">
+      <expression exprStr="widgets.amount.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.end_date">
+      <expression exprStr="widgets.end_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.coverage">
+      <expression exprStr="widgets.coverage.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.address_line">
+      <expression exprStr="widgets.address.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.new_integer">
+      <expression exprStr="widgets.year.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/processing_claims.process#//@activities[name='Second%20Approval']/@taskContract/@dataServiceContracts[name='da_def_update_processing_claims_second_approval']"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_unassign_currenttask" label="Unassign Current Task">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/currentTask.task#//@dataActionContracts.3/@value"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_unhold_currenttask" label="Unhold Current Task">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/currentTask.task#//@dataActionContracts.2/@value"/>
+  </dataActions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="processing_claims_1_1" label="Complete task First Approval (Processing Claims)-1">
+    <inputMappings name="processVariables.response">
+      <expression exprStr="widgets.response.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.id">
+      <expression exprStr="processing_claims_second_approval.processPackages.claim.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.claim_status">
+      <expression exprStr="widgets.response.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_date">
+      <expression exprStr="widgets.inciden_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_location">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.vehicle_in_motion">
+      <expression exprStr="widgets.vehicle_in_motion.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.id">
+      <expression exprStr="processing_claims_second_approval.processPackages.policy.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.a_is_hidden">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_domain">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.first_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.last_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.id">
+      <expression exprStr="processing_claims_second_approval.processPackages.vehicle.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.a_is_hidden">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_domain">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.model">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vehicle_make">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vin">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:cia:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/processing_claims_3.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="processing_claims_2_1" label="Repeat task First Approval (Processing Claims)-1">
+    <inputMappings name="processVariables.response">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.amount">
+      <expression exprStr="widgets.amount.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.claim_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_date">
+      <expression exprStr="widgets.inciden_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_location">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.vehicle_in_motion">
+      <expression exprStr="widgets.vehicle_in_motion.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.a_is_hidden">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_domain">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.address_line">
+      <expression exprStr="widgets.address.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.coverage">
+      <expression exprStr="widgets.coverage.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.end_date">
+      <expression exprStr="widgets.end_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.first_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.last_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.a_is_hidden">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_domain">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.model">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vehicle_make">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vin">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.new_integer">
+      <expression exprStr="widgets.year.value"/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:cia:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/processing_claims_4.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="assign_task_1" label="Assign Task Actionflow-1">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/assign_task.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="reassign_task_1" label="Reassign Task Actionflow-1">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/reassign_task.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="changeworkqueue_1" label="Change Work Queue Actionflow-1">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/changeworkqueue.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="hold_task_1" label="Hold Task Actionflow-1">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/hold_task.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="processing_claims_s_1" label="Delegate task Second Approval (Processing Claims) -1">
+    <inputMappings name="id">
+      <expression exprStr="processing_claims_second_approval.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:cia:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/processing_claims_s.actionflow#/"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@dataSources[name='taskhistory_initiate_staless_ds']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_acquire_currenttask']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_update_processing_claims_first_approval']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='processing_claims_1_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='processing_claims_2_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='assign_task_1']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_unassign_currenttask']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='reassign_task_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='changeworkqueue_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='hold_task_1']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_unhold_currenttask']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='processing_claims_s_1']"/>
+  <title exprStr="Processing Claims Second Approval"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value=""/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box3"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnhbox">
+        <properties name="orientation" value="Horizontal"/>
+        <properties name="width" value="30%"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="labelWidth" value="200" type="INTEGER"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnhbox"/>
+        <children componentDefinitionId="xcp_image">
+          <properties name="alt" value=""/>
+          <properties name="imageSource" value="urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_32.png"/>
+          <properties name="tooltip" value=""/>
+          <properties name="width" value="32" type="INTEGER"/>
+          <properties name="height" value="32" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="navType" value="none"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+          <properties name="navPageIdExpr" value=""/>
+          <properties name="navUrlExpr" value=""/>
+          <properties name="navObjectId" value=""/>
+          <properties name="navToNewTab" value="" type="BOOLEAN"/>
+          <properties name="navNewTabTarget" value=""/>
+          <properties name="navUrlParams" value=""/>
+          <properties name="xcpId" value="image"/>
+        </children>
+        <children componentDefinitionId="xcp_value_display">
+          <properties name="fieldLabel" value=""/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="isRepeating" value="false" type="BOOLEAN"/>
+          <properties name="name" value=""/>
+          <properties name="cls" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+            <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+              <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+              <properties name="separatorStyle" value="NEWLINE"/>
+              <properties name="separator" value="COMMA"/>
+            </formatter>
+          </properties>
+          <properties name="hstretch" value="" type="BOOLEAN"/>
+          <properties name="store" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.executionData.currenttask.task_subject"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter/>
+          </properties>
+          <properties name="xcpId" value="task_subject"/>
+        </children>
+        <children componentDefinitionId="xcp_image">
+          <properties name="alt" value=""/>
+          <properties name="imageSource" value="urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_priority_high.png"/>
+          <properties name="tooltip" value=""/>
+          <properties name="width" value="9" type="INTEGER"/>
+          <properties name="height" value="16" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value="processing_claims_second_approval.executionData.currenttask.priority &lt; 10"/>
+          <properties name="cls" value=""/>
+          <properties name="navType" value="none"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+          <properties name="navPageIdExpr" value=""/>
+          <properties name="navUrlExpr" value=""/>
+          <properties name="navObjectId" value=""/>
+          <properties name="navToNewTab" value="" type="BOOLEAN"/>
+          <properties name="navNewTabTarget" value=""/>
+          <properties name="navUrlParams" value=""/>
+          <properties name="xcpId" value="image1"/>
+        </children>
+        <children componentDefinitionId="xcp_image">
+          <properties name="alt" value=""/>
+          <properties name="imageSource" value="urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_priority_low.png"/>
+          <properties name="tooltip" value=""/>
+          <properties name="width" value="9" type="INTEGER"/>
+          <properties name="height" value="16" type="INTEGER"/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value="processing_claims_second_approval.executionData.currenttask.priority > 1"/>
+          <properties name="cls" value=""/>
+          <properties name="navType" value="none"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+          <properties name="navPageIdExpr" value=""/>
+          <properties name="navUrlExpr" value=""/>
+          <properties name="navObjectId" value=""/>
+          <properties name="navToNewTab" value="" type="BOOLEAN"/>
+          <properties name="navNewTabTarget" value=""/>
+          <properties name="navUrlParams" value=""/>
+          <properties name="xcpId" value="image2"/>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnhbox">
+        <properties name="orientation" value="Horizontal"/>
+        <properties name="width" value="70%"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="labelWidth" value="200" type="INTEGER"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="right"/>
+        <properties name="valign" value="top"/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnhbox1"/>
+        <children componentDefinitionId="xcp_button" dataService="//@dataActions[name='da_def_acquire_currenttask']">
+          <properties name="text" value="Acquire"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to Acquire this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="actionModel" value="acquire_task_model"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button"/>
+        </children>
+        <children componentDefinitionId="xcp_button" dataService="//@dataActions[name='da_def_update_processing_claims_first_approval']">
+          <properties name="text" value="Update"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to update this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button1"/>
+        </children>
+        <children componentDefinitionId="xcp_button" action="//@actions[name='processing_claims_1_1']">
+          <properties name="text" value="Complete"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to complete this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="specified"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="page_static"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_tasks">
+                <data selectionName="tasks" selectionLabel="Tasks">
+                  <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/tasks.page#/"/>
+                </data>
+              </properties>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button2"/>
+        </children>
+        <children componentDefinitionId="xcp_button" action="//@actions[name='processing_claims_2_1']">
+          <properties name="text" value="Repeat"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to repeat this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button3"/>
+        </children>
+        <children componentDefinitionId="xcp_button" action="//@actions[name='assign_task_1']">
+          <properties name="text" value="Assign"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to assign this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button4"/>
+        </children>
+        <children componentDefinitionId="xcp_button" action="//@actions[name='hold_task_1']">
+          <properties name="text" value="Hold"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to hold this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" dataService="//@dataActions[name='da_def_unhold_currenttask']">
+          <properties name="text" value="Unhold"/>
+          <properties name="scale" value="small"/>
+          <properties name="badgeText" value=""/>
+          <properties name="badgeAlign" value="top-right"/>
+          <properties name="imageSource" value=""/>
+          <properties name="glyph" value=""/>
+          <properties name="iconAlign" value="left"/>
+          <properties name="tooltip" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="action">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to Unhold this task?"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN"/>
+              <properties name="redirectStyle" value="current"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN"/>
+              <properties name="actionType" value="datasource"/>
+              <properties name="actionModel" value="unhold_task_model"/>
+              <properties name="navType" value="none"/>
+            </action>
+          </properties>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="disabled" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="xcpId" value="button9"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value=""/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="column_box4"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value="30%"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="100" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox4"/>
+        <children componentDefinitionId="xcp_value_display">
+          <properties name="fieldLabel" value="State"/>
+          <properties name="valueType" value="xcp.picklist.xcp_task_state"/>
+          <properties name="isRepeating" value="false" type="BOOLEAN"/>
+          <properties name="name" value=""/>
+          <properties name="cls" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+            <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+              <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+              <properties name="separatorStyle" value="NEWLINE"/>
+              <properties name="separator" value="COMMA"/>
+            </formatter>
+          </properties>
+          <properties name="hstretch" value="" type="BOOLEAN"/>
+          <properties name="store" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.executionData.currenttask.state" type="INTEGER"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_integer_formatter">
+              <properties name="xtype" value="xcp_integer_formatter"/>
+              <properties name="decimalPrecision" value="0" type="INTEGER"/>
+              <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+              <properties name="separatorStyle" value="LOCALE"/>
+              <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+            </formatter>
+          </properties>
+          <properties name="xcpId" value="state"/>
+        </children>
+        <children componentDefinitionId="xcp_value_display">
+          <properties name="fieldLabel" value="Started on"/>
+          <properties name="valueType" value="DATETIME"/>
+          <properties name="isRepeating" value="false" type="BOOLEAN"/>
+          <properties name="name" value=""/>
+          <properties name="cls" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+            <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+              <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+              <properties name="separatorStyle" value="NEWLINE"/>
+              <properties name="separator" value="COMMA"/>
+            </formatter>
+          </properties>
+          <properties name="hstretch" value="" type="BOOLEAN"/>
+          <properties name="store" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.executionData.currenttask.received_date" type="DATETIME"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_datetime_formatter">
+              <properties name="xtype" value="xcp_datetime_formatter"/>
+              <properties name="dateFormat" value="short"/>
+              <properties name="timeFormat" value="short"/>
+              <properties name="dateStyle" value="datetime"/>
+            </formatter>
+          </properties>
+          <properties name="xcpId" value="received_date"/>
+        </children>
+        <children componentDefinitionId="xcp_value_display">
+          <properties name="fieldLabel" value="Assigned to"/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="isRepeating" value="false" type="BOOLEAN"/>
+          <properties name="name" value=""/>
+          <properties name="cls" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+            <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+              <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+              <properties name="separatorStyle" value="NEWLINE"/>
+              <properties name="separator" value="COMMA"/>
+            </formatter>
+          </properties>
+          <properties name="hstretch" value="" type="BOOLEAN"/>
+          <properties name="store" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.executionData.currenttask.performer"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter/>
+          </properties>
+          <properties name="xcpId" value="performer"/>
+        </children>
+        <children componentDefinitionId="xcp_value_display">
+          <properties name="fieldLabel" value="Due on"/>
+          <properties name="valueType" value="DATETIME"/>
+          <properties name="isRepeating" value="false" type="BOOLEAN"/>
+          <properties name="name" value=""/>
+          <properties name="cls" value=""/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+            <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+              <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+              <properties name="separatorStyle" value="NEWLINE"/>
+              <properties name="separator" value="COMMA"/>
+            </formatter>
+          </properties>
+          <properties name="hstretch" value="" type="BOOLEAN"/>
+          <properties name="store" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.executionData.currenttask.due_date" type="DATETIME"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_datetime_formatter">
+              <properties name="xtype" value="xcp_datetime_formatter"/>
+              <properties name="dateFormat" value="short"/>
+              <properties name="timeFormat" value="short"/>
+              <properties name="dateStyle" value="datetime"/>
+            </formatter>
+          </properties>
+          <properties name="xcpId" value="due_date"/>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value="70%"/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="labelWidth" value="100" type="INTEGER"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnhbox2"/>
+        <properties name="xtype" value="xcp_columnvbox"/>
+        <children componentDefinitionId="xcp_dropdown_list">
+          <properties name="fieldLabel" value="Response"/>
+          <properties name="emptyText" value=""/>
+          <properties name="disabled" value="">
+            <eventBasedExpressions>
+              <expression exprStr="processing_claims_second_approval.executionData.currenttask.state==0"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="hidden" value=""/>
+          <properties name="valueField" value=""/>
+          <properties name="displayField" value=""/>
+          <properties name="modelStore" value="picklists.cia.cia_second_response_rev"/>
+          <properties name="valueType" value="INTEGER"/>
+          <properties name="name" value=""/>
+          <properties name="fieldWidth" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="tooltip" value=""/>
+          <properties name="mandatory" value=""/>
+          <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
+          <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
+          <properties name="anyMatch" value="false" type="BOOLEAN"/>
+          <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
+          <properties name="valid" value=""/>
+          <properties name="xcpId" value="response"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="format">
+            <formatter componentDefinitionId="xcp_integer_formatter">
+              <properties name="xtype" value="xcp_integer_formatter"/>
+              <properties name="decimalPrecision" value="0" type="INTEGER"/>
+              <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+              <properties name="separatorStyle" value="LOCALE"/>
+              <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+            </formatter>
+          </properties>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab_group">
+      <properties name="title" value=""/>
+      <properties name="tabPosition" value="top"/>
+      <properties name="width" value="" type="INTEGER"/>
+      <properties name="minWidth" value="450" type="INTEGER"/>
+      <properties name="height" value="" type="INTEGER"/>
+      <properties name="cls" value=""/>
+      <properties name="tabWidth" value="" type="INTEGER"/>
+      <properties name="minTabWidth" value="" type="INTEGER"/>
+      <properties name="hidden" value=""/>
+      <properties name="selectedTab" value=""/>
+      <properties name="renderAllTabsOnLoad" value="false" type="BOOLEAN"/>
+      <properties name="xcpId" value="tab_group"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab">
+        <properties name="title" value="Task Details"/>
+        <properties name="tooltip" value=""/>
+        <properties name="tabWidth" value="" type="INTEGER"/>
+        <properties name="tabCls" value=""/>
+        <properties name="icon" value=""/>
+        <properties name="hidden" value=""/>
+        <properties name="disabled" value=""/>
+        <properties name="xcpId" value="tab"/>
+        <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+          <properties name="title"/>
+          <properties name="collapsible" value="false" type="BOOLEAN"/>
+          <properties name="collapsed" value=""/>
+          <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+          <properties name="border" value="false" type="BOOLEAN"/>
+          <properties name="defaultMargins" value="5"/>
+          <properties name="margins" value=""/>
+          <properties name="layout" value="xcp_columnbox"/>
+          <properties name="hidden" value=""/>
+          <properties name="cls" value=""/>
+          <properties name="xcpId" value="details"/>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+            <properties name="orientation" value="Vertical"/>
+            <properties name="width" value=""/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="split" value="" type="BOOLEAN"/>
+            <properties name="overflow_x" value="hidden"/>
+            <properties name="labelWidth" value="150" type="INTEGER"/>
+            <properties name="labelAlign" value="left"/>
+            <properties name="halign" value="left"/>
+            <properties name="valign" value="top"/>
+            <properties name="defaultMargins" value="5"/>
+            <properties name="margins" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="xcpId" value="columnvbox"/>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Incident Date"/>
+              <properties name="valueType" value="DATETIME"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.claim.incident_date"/>
+              <properties name="xcpId" value="inciden_date"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter componentDefinitionId="xcp_datetime_formatter">
+                  <properties name="xtype" value="xcp_datetime_formatter"/>
+                  <properties name="dateFormat" value="short"/>
+                  <properties name="timeFormat" value="short"/>
+                  <properties name="dateStyle" value="datetime"/>
+                </formatter>
+              </properties>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Incident Location"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.claim.incident_location"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="incident_location"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Amount"/>
+              <properties name="valueType" value="FLOAT"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.claim.amount"/>
+              <properties name="xcpId" value="amount"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter componentDefinitionId="xcp_float_formatter">
+                  <properties name="xtype" value="xcp_float_formatter"/>
+                  <properties name="decimalPrecision" value="2" type="INTEGER"/>
+                  <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+                  <properties name="separatorStyle" value="LOCALE"/>
+                  <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+                </formatter>
+              </properties>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Vehicle in Motion"/>
+              <properties name="valueType" value="BOOLEAN"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.claim.vehicle_in_motion"/>
+              <properties name="xcpId" value="vehicle_in_motion"/>
+            </children>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+            <properties name="orientation" value="Vertical"/>
+            <properties name="width" value=""/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="split" value="" type="BOOLEAN"/>
+            <properties name="overflow_x" value="hidden"/>
+            <properties name="labelWidth" value="150" type="INTEGER"/>
+            <properties name="labelAlign" value="left"/>
+            <properties name="halign" value="left"/>
+            <properties name="valign" value="top"/>
+            <properties name="defaultMargins" value="5"/>
+            <properties name="margins" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="xcpId" value="columnvbox2"/>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="First Name"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.policy.first_name"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="first_name"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Last Name"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.policy.last_name"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="last_name"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="End Date"/>
+              <properties name="valueType" value="DATETIME"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.policy.end_date"/>
+              <properties name="xcpId" value="end_date"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter componentDefinitionId="xcp_datetime_formatter">
+                  <properties name="xtype" value="xcp_datetime_formatter"/>
+                  <properties name="dateFormat" value="short"/>
+                  <properties name="timeFormat" value="short"/>
+                  <properties name="dateStyle" value="datetime"/>
+                </formatter>
+              </properties>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Coverage"/>
+              <properties name="valueType" value="FLOAT"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.policy.coverage"/>
+              <properties name="xcpId" value="coverage"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter componentDefinitionId="xcp_float_formatter">
+                  <properties name="xtype" value="xcp_float_formatter"/>
+                  <properties name="decimalPrecision" value="2" type="INTEGER"/>
+                  <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+                  <properties name="separatorStyle" value="LOCALE"/>
+                  <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+                </formatter>
+              </properties>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Address"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.policy.address_line"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="address"/>
+            </children>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+            <properties name="orientation" value="Vertical"/>
+            <properties name="width" value=""/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="split" value="" type="BOOLEAN"/>
+            <properties name="overflow_x" value="hidden"/>
+            <properties name="labelWidth" value="150" type="INTEGER"/>
+            <properties name="labelAlign" value="left"/>
+            <properties name="halign" value="left"/>
+            <properties name="valign" value="top"/>
+            <properties name="defaultMargins" value="5"/>
+            <properties name="margins" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="xcpId" value="columnvbox1"/>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Make"/>
+              <properties name="valueType" value="xcp.picklist.cia_vehicle_make"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.vehicle.vehicle_make"/>
+              <properties name="xcpId" value="make"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Model"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.vehicle.model"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="model"/>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Year"/>
+              <properties name="valueType" value="INTEGER"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.vehicle.new_integer"/>
+              <properties name="xcpId" value="year"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter componentDefinitionId="xcp_integer_formatter">
+                  <properties name="xtype" value="xcp_integer_formatter"/>
+                  <properties name="decimalPrecision" value="0" type="INTEGER"/>
+                  <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+                  <properties name="separatorStyle" value="LOCALE"/>
+                  <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+                </formatter>
+              </properties>
+            </children>
+            <children componentDefinitionId="xcp_value_display">
+              <properties name="fieldLabel" value="Label"/>
+              <properties name="valueType" value="STRING"/>
+              <properties name="isRepeating" value="false" type="BOOLEAN"/>
+              <properties name="name" value=""/>
+              <properties name="cls" value=""/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+                <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                  <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                  <properties name="separatorStyle" value="NEWLINE"/>
+                  <properties name="separator" value="COMMA"/>
+                </formatter>
+              </properties>
+              <properties name="hstretch" value="" type="BOOLEAN"/>
+              <properties name="store" value=""/>
+              <properties name="hidden" value=""/>
+              <properties name="tooltip" value=""/>
+              <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="processing_claims_second_approval.processPackages.vehicle.vin"/>
+              <properties xsi:type="uitemplate:ObjectProperty" name="format">
+                <formatter/>
+              </properties>
+              <properties name="xcpId" value="vin"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab">
+        <properties name="title" value="Claim Documents"/>
+        <properties name="tooltip"/>
+        <properties name="tabWidth" value="" type="INTEGER"/>
+        <properties name="tabCls" value=""/>
+        <properties name="icon" value=""/>
+        <properties name="hidden" value=""/>
+        <properties name="disabled" value=""/>
+        <properties name="xcpId" value="claim_documents"/>
+        <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_folder_view">
+          <properties name="title"/>
+          <properties name="tooltip" value=""/>
+          <properties name="root" value="processing_claims_second_approval.processPackages.claim.id"/>
+          <properties name="isID" value="true" type="BOOLEAN"/>
+          <properties name="showRootFiles" value="true" type="BOOLEAN"/>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="minWidth" value="500" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="cls" value=""/>
+          <properties name="hidden" value=""/>
+          <properties name="enableDragDrop" value="true" type="BOOLEAN"/>
+          <properties name="depth" value="10" type="INTEGER"/>
+          <properties name="showOnlyFolders" value="false" type="BOOLEAN"/>
+          <properties name="hideContentPanel" value="false" type="BOOLEAN"/>
+          <properties name="selectedNode" value=""/>
+          <properties name="isSelectedID" value="true" type="BOOLEAN"/>
+          <properties name="hideContextMenu" value=""/>
+          <properties name="showHiddenObjects" value="false" type="BOOLEAN"/>
+          <properties name="xcpId" value="folder_view"/>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab">
+        <properties name="title" value="History"/>
+        <properties name="tooltip" value=""/>
+        <properties name="tabWidth" value="" type="INTEGER"/>
+        <properties name="tabCls" value=""/>
+        <properties name="icon" value=""/>
+        <properties name="hidden" value=""/>
+        <properties name="disabled" value=""/>
+        <properties name="xcpId" value="tab2"/>
+        <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list" dataService="//@dataSources[name='taskhistory_initiate_staless_ds']">
+          <properties name="title" value=""/>
+          <properties name="typeName" value="xcp_taskhistory_initiate"/>
+          <properties name="modelName" value="xcp_taskhistory_initiate_staless_ds_outputs"/>
+          <properties name="storeId" value=""/>
+          <properties name="initParams" value=""/>
+          <properties name="selectionModelName" value=""/>
+          <properties name="pageSize" value="10" type="INTEGER"/>
+          <properties name="hidden" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="facets"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="facetLabels"/>
+          <properties name="selectionModel" value="false" type="BOOLEAN"/>
+          <properties name="cls" value=""/>
+          <properties name="enableDragDrop" value="true" type="BOOLEAN"/>
+          <properties name="disableNavigationOnFirstColumn" value="false" type="BOOLEAN"/>
+          <properties name="hideContextMenu" value=""/>
+          <properties name="allowDeselect" value="false" type="BOOLEAN"/>
+          <properties name="displayTotalRowCount" value="false" type="BOOLEAN"/>
+          <properties name="autoTotalCount" value="false" type="BOOLEAN"/>
+          <properties name="totalRowCountExpression" value=""/>
+          <properties name="autoSelection" value="false" type="BOOLEAN"/>
+          <properties name="pageSizeList" value="10,25,50,100"/>
+          <properties name="stateful" value="false" type="BOOLEAN"/>
+          <properties name="stateid" value=""/>
+          <properties name="setFacets" value=""/>
+          <properties name="allowInLineEdit" value="false" type="BOOLEAN"/>
+          <properties name="dataSourceType" value=""/>
+          <properties name="dataInstance" value=""/>
+          <properties name="modelStore" value="dataservices.taskhistory_initiate_staless_ds"/>
+          <properties name="width" value="" type="INTEGER"/>
+          <properties name="height" value="" type="INTEGER"/>
+          <properties name="hideadd" value=""/>
+          <properties name="hideremove" value=""/>
+          <properties name="hidemovebtn" value=""/>
+          <properties name="disableadd" value=""/>
+          <properties name="disableremove" value=""/>
+          <properties name="disablemovebtn" value=""/>
+          <properties name="xcpId" value="results_list"/>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_page_link_column" dataService="//@dataSources[name='taskhistory_initiate_staless_ds']">
+            <properties name="text" value="Activity name"/>
+            <properties name="width" value="150" type="INTEGER"/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="valueExpr" value=""/>
+            <properties name="valueType" value="STRING"/>
+            <properties name="isRepeating" value="false" type="BOOLEAN"/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+              <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                <properties name="separatorStyle" value="NEWLINE"/>
+                <properties name="separator" value="COMMA"/>
+              </formatter>
+            </properties>
+            <properties name="sortable" value="true" type="BOOLEAN"/>
+            <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+            <properties name="hidden" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="dataIndex" value="activity_name"/>
+            <properties name="hideable" value="true" type="BOOLEAN"/>
+            <properties name="resizable" value="true" type="BOOLEAN"/>
+            <properties name="draggable" value="true" type="BOOLEAN"/>
+            <properties name="parentxcpId" value="results_list"/>
+            <properties name="stateful" value="false" type="BOOLEAN"/>
+            <properties name="imageSourceExpr" value=""/>
+            <properties name="imageSource" value=""/>
+            <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+            <properties name="imagewidth" value="" type="INTEGER"/>
+            <properties name="imageheight" value="" type="INTEGER"/>
+            <properties name="navType" value="none"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="format">
+              <formatter/>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="col_activity_name"/>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='taskhistory_initiate_staless_ds']">
+            <properties name="text" value="Date"/>
+            <properties name="width" value="150" type="INTEGER"/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="valueExpr" value=""/>
+            <properties name="valueType" value="DATETIME"/>
+            <properties name="isRepeating" value="false" type="BOOLEAN"/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+              <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                <properties name="separatorStyle" value="NEWLINE"/>
+                <properties name="separator" value="COMMA"/>
+              </formatter>
+            </properties>
+            <properties name="sortable" value="true" type="BOOLEAN"/>
+            <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+            <properties name="hidden" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="dataIndex" value="date"/>
+            <properties name="hideable" value="true" type="BOOLEAN"/>
+            <properties name="resizable" value="true" type="BOOLEAN"/>
+            <properties name="draggable" value="true" type="BOOLEAN"/>
+            <properties name="parentxcpId" value="results_list"/>
+            <properties name="stateful" value="false" type="BOOLEAN"/>
+            <properties name="imageSourceExpr" value=""/>
+            <properties name="imageSource" value=""/>
+            <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+            <properties name="imagewidth" value="" type="INTEGER"/>
+            <properties name="imageheight" value="" type="INTEGER"/>
+            <properties name="navType" value="none"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="format">
+              <formatter componentDefinitionId="xcp_datetime_formatter">
+                <properties name="xtype" value="xcp_datetime_formatter"/>
+                <properties name="dateFormat" value="short"/>
+                <properties name="timeFormat" value="short"/>
+                <properties name="dateStyle" value="datetime"/>
+              </formatter>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="col_date"/>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='taskhistory_initiate_staless_ds']">
+            <properties name="text" value="Performer"/>
+            <properties name="width" value="150" type="INTEGER"/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="valueExpr" value=""/>
+            <properties name="valueType" value="STRING"/>
+            <properties name="isRepeating" value="false" type="BOOLEAN"/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+              <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                <properties name="separatorStyle" value="NEWLINE"/>
+                <properties name="separator" value="COMMA"/>
+              </formatter>
+            </properties>
+            <properties name="sortable" value="true" type="BOOLEAN"/>
+            <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+            <properties name="hidden" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="dataIndex" value="performer"/>
+            <properties name="hideable" value="true" type="BOOLEAN"/>
+            <properties name="resizable" value="true" type="BOOLEAN"/>
+            <properties name="draggable" value="true" type="BOOLEAN"/>
+            <properties name="parentxcpId" value="results_list"/>
+            <properties name="stateful" value="false" type="BOOLEAN"/>
+            <properties name="imageSourceExpr" value=""/>
+            <properties name="imageSource" value=""/>
+            <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+            <properties name="imagewidth" value="" type="INTEGER"/>
+            <properties name="imageheight" value="" type="INTEGER"/>
+            <properties name="navType" value="none"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="format">
+              <formatter/>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="col_performer"/>
+          </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_results_list_column" dataService="//@dataSources[name='taskhistory_initiate_staless_ds']">
+            <properties name="text" value="Status"/>
+            <properties name="width" value="" type="INTEGER"/>
+            <properties name="minWidth" value="" type="INTEGER"/>
+            <properties name="valueExpr" value=""/>
+            <properties name="valueType" value="xcp.picklist.xcp_task_state"/>
+            <properties name="isRepeating" value="false" type="BOOLEAN"/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="repeatingAttributeFormat">
+              <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+                <properties name="xtype" value="xcp_repeating_attribute_formatter"/>
+                <properties name="separatorStyle" value="NEWLINE"/>
+                <properties name="separator" value="COMMA"/>
+              </formatter>
+            </properties>
+            <properties name="sortable" value="true" type="BOOLEAN"/>
+            <properties name="menuDisabled" value="false" type="BOOLEAN"/>
+            <properties name="hidden" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="dataIndex" value="status"/>
+            <properties name="hideable" value="true" type="BOOLEAN"/>
+            <properties name="resizable" value="true" type="BOOLEAN"/>
+            <properties name="draggable" value="true" type="BOOLEAN"/>
+            <properties name="parentxcpId" value="results_list"/>
+            <properties name="stateful" value="false" type="BOOLEAN"/>
+            <properties name="imageSourceExpr" value=""/>
+            <properties name="imageSource" value=""/>
+            <properties name="isExprImageSource" value="false" type="BOOLEAN"/>
+            <properties name="imagewidth" value="" type="INTEGER"/>
+            <properties name="imageheight" value="" type="INTEGER"/>
+            <properties name="navType" value="none"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value=""/>
+            <properties xsi:type="uitemplate:ObjectProperty" name="format">
+              <formatter componentDefinitionId="xcp_integer_formatter">
+                <properties name="xtype" value="xcp_integer_formatter"/>
+                <properties name="decimalPrecision" value="0" type="INTEGER"/>
+                <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+                <properties name="separatorStyle" value="LOCALE"/>
+                <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+              </formatter>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="col_status"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </rootContainer>
+  <primaryModel href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/processing_claims.process#//@activities[name='Second%20Approval']/@taskContract"/>
+</uitemplate:Page>
