@@ -120,7 +120,7 @@
       <performerList assignmentPolicy="NotApplicable">
         <performers xsi:type="nsActivity:WorkQueue">
           <dataResolutionConfig xsi:type="nsCommon:AppParamResolutionConfig">
-            <appParam href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/calim_work_queues.parameter#/"/>
+            <appParam href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/claim_work_queues.parameter#/"/>
           </dataResolutionConfig>
         </performers>
       </performerList>
@@ -589,7 +589,7 @@
       <performerList assignmentPolicy="NotApplicable">
         <performers xsi:type="nsActivity:WorkQueue">
           <dataResolutionConfig xsi:type="nsCommon:AppParamResolutionConfig">
-            <appParam href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/calim_work_queues.parameter#/"/>
+            <appParam href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/claim_work_queues.parameter#/"/>
           </dataResolutionConfig>
         </performers>
       </performerList>

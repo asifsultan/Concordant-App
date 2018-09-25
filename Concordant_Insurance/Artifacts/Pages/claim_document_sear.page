@@ -67,44 +67,6 @@
             <properties name="tooltip" value=""/>
             <properties name="cls" value=""/>
             <properties name="xcpId" value="columnvbox1"/>
-            <children componentDefinitionId="xcp_text_input">
-              <properties name="fieldLabel" value="Full-Text"/>
-              <properties name="emptyText" value=""/>
-              <properties name="name" value=""/>
-              <properties name="hstretch" value="true" type="BOOLEAN"/>
-              <properties name="fieldWidth" value="" type="INTEGER"/>
-              <properties name="readOnly" value=""/>
-              <properties name="hidden" value=""/>
-              <properties name="valueType" value="STRING"/>
-              <properties name="inputType" value=""/>
-              <properties name="cls" value=""/>
-              <properties name="mandatory" value=""/>
-              <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
-              <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
-              <properties name="tooltip" value=""/>
-              <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
-              <properties name="valid" value=""/>
-              <properties name="xcpId" value="text_input"/>
-            </children>
-            <children componentDefinitionId="xcp_text_input">
-              <properties name="fieldLabel" value="Name"/>
-              <properties name="emptyText" value=""/>
-              <properties name="name" value=""/>
-              <properties name="hstretch" value="true" type="BOOLEAN"/>
-              <properties name="fieldWidth" value="" type="INTEGER"/>
-              <properties name="readOnly" value=""/>
-              <properties name="hidden" value=""/>
-              <properties name="valueType" value="STRING"/>
-              <properties name="inputType" value=""/>
-              <properties name="cls" value=""/>
-              <properties name="mandatory" value=""/>
-              <properties name="hideErrorInToolTip" value="false" type="BOOLEAN"/>
-              <properties name="stopOnValidationFail" value="true" type="BOOLEAN"/>
-              <properties name="tooltip" value=""/>
-              <properties xsi:type="uitemplate:DataboundProperty" name="value" value=""/>
-              <properties name="valid" value=""/>
-              <properties name="xcpId" value="text_input1"/>
-            </children>
           </children>
         </children>
         <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
@@ -134,32 +96,6 @@
             <properties name="tooltip" value=""/>
             <properties name="cls" value=""/>
             <properties name="xcpId" value="columnhbox"/>
-            <children componentDefinitionId="xcp_button">
-              <properties name="text" value="Search"/>
-              <properties name="scale" value="small"/>
-              <properties name="badgeText" value=""/>
-              <properties name="badgeAlign" value="top-right"/>
-              <properties name="imageSource" value=""/>
-              <properties name="glyph" value=""/>
-              <properties name="iconAlign" value="left"/>
-              <properties name="tooltip" value=""/>
-              <properties xsi:type="uitemplate:ObjectProperty" name="action">
-                <action>
-                  <properties name="actionType"/>
-                  <properties name="autoLoad" value="true" type="BOOLEAN"/>
-                  <properties name="pageSize" value="10" type="INTEGER"/>
-                  <properties name="outputType" value="Array"/>
-                  <properties name="fetchPermissionMetadata" value="false"/>
-                  <properties name="includeLWSOInstances" value="false"/>
-                </action>
-              </properties>
-              <properties name="width" value="" type="INTEGER"/>
-              <properties name="height" value="" type="INTEGER"/>
-              <properties name="cls" value=""/>
-              <properties name="disabled" value=""/>
-              <properties name="hidden" value=""/>
-              <properties name="xcpId" value="button"/>
-            </children>
           </children>
         </children>
       </children>

@@ -2,7 +2,7 @@
 <uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/tasks.page" categoryId="com.emc.xcp.artifact.page" name="tasks" label="Tasks" templateType="application">
   <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="queue_claims" label="Queue Claims">
     <inputMappings name="workqueue">
-      <expression exprStr="parameters.cia.calim_work_queues"/>
+      <expression exprStr="parameters.cia.claim_work_queues"/>
     </inputMappings>
     <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:cia:com.emc.xcp.artifact.search.tasklist:Artifacts/Task-list Queries/queue_claims.tasklist#//@datasource"/>
   </dataSources>

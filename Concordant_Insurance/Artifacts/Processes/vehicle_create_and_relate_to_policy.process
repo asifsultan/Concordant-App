@@ -186,7 +186,7 @@
     <trigger expectedEventName="" canRunMultipleTimes="true"/>
     <transition xsi:type="nsActivity:AllFlowsTransition"/>
     <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
-      <topLeftPoint x="350" y="168"/>
+      <topLeftPoint x="355" y="156"/>
       <textStyle fontName="Dialog" fontSize="10">
         <bgColor/>
         <fgColor/>
@@ -233,7 +233,7 @@
     <trigger expectedEventName="" canRunMultipleTimes="true"/>
     <transition xsi:type="nsActivity:AllFlowsTransition"/>
     <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
-      <topLeftPoint x="496" y="155"/>
+      <topLeftPoint x="497" y="155"/>
       <textStyle fontName="Dialog" fontSize="10">
         <bgColor/>
         <fgColor/>
@@ -360,7 +360,7 @@
       </textStyle>
     </startActivityUIInfo>
     <endActivityUIInfo imageScale="100" image="palette/event_end_32_proc.png">
-      <topLeftPoint x="626" y="151"/>
+      <topLeftPoint x="626" y="149"/>
       <textStyle fontName="Dialog" fontSize="10">
         <bgColor/>
         <fgColor/>

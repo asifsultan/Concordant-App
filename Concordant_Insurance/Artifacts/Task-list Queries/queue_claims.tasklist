@@ -123,7 +123,7 @@
   </columns>
   <defaultSort ascending="true"/>
   <processes href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/processing_claims.process#/"/>
-  <workqueues href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/calim_work_queues.parameter#/"/>
+  <workqueues href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/claim_work_queues.parameter#/"/>
   <workqueuesDatasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="queue_claims_workqueue" label="Queue Claims Workqueue" description="" implCategoryId="com.emc.xcp.artifact.search.tasklist">
     <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
       <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>

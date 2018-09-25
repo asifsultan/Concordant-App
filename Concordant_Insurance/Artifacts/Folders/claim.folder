@@ -65,7 +65,7 @@
     <condition exprStr=""/>
   </eventConfigs>
   <accessControlPolicy inheritedFromParentFolder="true"/>
-  <defaultFolderPath/>
+  <defaultFolderPath exprStr="'/Concordant-app-data'"/>
   <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_claim" label="Create Claim" implCategoryId="com.emc.xcp.artifact.folder">
     <inputs xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
       <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
