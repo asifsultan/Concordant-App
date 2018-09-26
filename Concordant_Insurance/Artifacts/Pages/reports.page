@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/reports.page" categoryId="com.emc.xcp.artifact.page" name="reports" label="Reports" templateType="application">
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="average_claim_proce" label="Average Claim Processing Time">
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:cia:com.emc.xcp.artifact.datasourcehistorical:Artifacts/Historical Queries/average_claim_proce.historical#//@dataServiceContracts[name='average_claim_proce']"/>
+  </dataSources>
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="number_of_claims_by" label="Number of Claims  by Status">
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:cia:com.emc.xcp.artifact.datasourcehistorical:Artifacts/Historical Queries/number_of_claims_by.historical#//@dataServiceContracts[name='number_of_claims_by']"/>
+  </dataSources>
+  <actionInstanceProperty actionInstance="//@dataSources[name='average_claim_proce']"/>
+  <actionInstanceProperty actionInstance="//@dataSources[name='number_of_claims_by']"/>
+  <title exprStr="Reports"/>
+  <rootContainer>
+    <properties name="xcpId" value="root"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box">
+      <properties name="title" value="Charts"/>
+      <properties name="collapsible" value="false" type="BOOLEAN"/>
+      <properties name="collapsed" value=""/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN"/>
+      <properties name="border" value="false" type="BOOLEAN"/>
+      <properties name="defaultMargins" value="5"/>
+      <properties name="margins" value=""/>
+      <properties name="layout" value="xcp_columnbox"/>
+      <properties name="hidden" value=""/>
+      <properties name="cls" value=""/>
+      <properties name="xcpId" value="chart"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="150" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox"/>
+        <children componentDefinitionId="xcp_pie_chart" dataService="//@dataSources[name='number_of_claims_by']">
+          <properties name="title" value="Number of Claims by Status"/>
+          <properties name="reportType" value="pie"/>
+          <properties name="reportId" value="2"/>
+          <properties name="timeGranularity" value="DAILY"/>
+          <properties name="modelName" value="cia_number_of_claims_by_outputs"/>
+          <properties name="typeName" value=""/>
+          <properties name="categoryID" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFields">
+            <values>s1gro_claim_status</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisSelectedFields">
+            <values>s1gro_claim_status</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFields">
+            <values>s0cou_a_r_object_id</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedFields">
+            <values>s0cou_a_r_object_id</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFieldsNames">
+            <values>Claim Status</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisSelectedFieldsNames">
+            <values>Claim Status</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFieldsNames">
+            <values>Count of Object ID</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedFieldsNames">
+            <values>Count of Object ID</values>
+          </properties>
+          <properties name="xAxisLabel" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisAllLabels"/>
+          <properties name="yAxisLabel" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisAllLabels">
+            <values>Number of Claims by Status</values>
+          </properties>
+          <properties name="storeId" value="number_of_claims_by"/>
+          <properties name="dataSourceLabel" value=""/>
+          <properties name="sortingFieldName" value="none"/>
+          <properties name="sortingOrder" value="desc"/>
+          <properties name="legendDisplay" value="true"/>
+          <properties name="dataSourceLabelToDisplay" value=""/>
+          <properties name="appNamespace" value="cia"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedLabels">
+            <values>Number of Claims by Status</values>
+          </properties>
+          <properties name="yAxisTypeList" value="pie"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedTypes">
+            <values>pie</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisAllTypes">
+            <values>pie</values>
+          </properties>
+          <properties name="timeFilter" value="1" type="INTEGER"/>
+          <properties name="HOURLY" value="1" type="INTEGER"/>
+          <properties name="DAILY" value="1" type="INTEGER"/>
+          <properties name="WEEKLY" value="1" type="INTEGER"/>
+          <properties name="MONTHLY" value="1" type="INTEGER"/>
+          <properties name="QUATERLY" value="1" type="INTEGER"/>
+          <properties name="YEARLY" value="1" type="INTEGER"/>
+          <properties name="fieldLabel" value="Label"/>
+          <properties name="valueType" value="STRING"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFieldsValueType">
+            <values>xcp.picklist.cia_claim_status</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFieldsValueType">
+            <values>INTEGER</values>
+          </properties>
+          <properties name="inputActionModel" value=""/>
+          <properties name="requiredUserInputsNames" value=""/>
+          <properties name="requiredUserInputsLabels" value=""/>
+          <properties name="piePanelWidth" value="500" type="INTEGER"/>
+          <properties name="piePanelHeight" value="350" type="INTEGER"/>
+          <properties name="xcpId" value="claims_by_status"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="s0cou_a_r_object_id_format">
+            <formatter componentDefinitionId="xcp_integer_formatter">
+              <properties name="xtype" value="xcp_integer_formatter"/>
+              <properties name="decimalPrecision" value="0" type="INTEGER"/>
+              <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+              <properties name="separatorStyle" value="LOCALE"/>
+              <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+            </formatter>
+          </properties>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnvbox">
+        <properties name="orientation" value="Vertical"/>
+        <properties name="width" value=""/>
+        <properties name="minWidth" value="" type="INTEGER"/>
+        <properties name="split" value="" type="BOOLEAN"/>
+        <properties name="overflow_x" value="hidden"/>
+        <properties name="labelWidth" value="150" type="INTEGER"/>
+        <properties name="labelAlign" value="left"/>
+        <properties name="halign" value="left"/>
+        <properties name="valign" value="top"/>
+        <properties name="defaultMargins" value="5"/>
+        <properties name="margins" value=""/>
+        <properties name="tooltip" value=""/>
+        <properties name="cls" value=""/>
+        <properties name="xcpId" value="columnvbox1"/>
+        <children componentDefinitionId="xcp_gauge_chart" dataService="//@dataSources[name='average_claim_proce']">
+          <properties name="title" value="Average Claim Processing Time"/>
+          <properties name="reportType" value="gauge"/>
+          <properties name="reportId" value="1"/>
+          <properties name="timeGranularity" value="DAILY"/>
+          <properties name="modelName" value="cia_average_claim_proce_outputs"/>
+          <properties name="typeName" value=""/>
+          <properties name="categoryID" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFields"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisSelectedFields"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFields">
+            <values>s0ave_average_of_claim_proc</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedFields">
+            <values>s0ave_average_of_claim_proc</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFieldsNames"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisSelectedFieldsNames"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFieldsNames">
+            <values>Average of Claim Processing Duration</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedFieldsNames">
+            <values>Average of Claim Processing Duration</values>
+          </properties>
+          <properties name="xAxisLabel" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisAllLabels"/>
+          <properties name="yAxisLabel" value=""/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisAllLabels">
+            <values>Average of Claim Processing Duration</values>
+          </properties>
+          <properties name="storeId" value="average_claim_proce"/>
+          <properties name="dataSourceLabel" value=""/>
+          <properties name="sortingFieldName" value="none"/>
+          <properties name="sortingOrder" value="desc"/>
+          <properties name="legendDisplay" value="true"/>
+          <properties name="dataSourceLabelToDisplay" value=""/>
+          <properties name="appNamespace" value="cia"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedLabels">
+            <values>Average of Claim Processing Duration</values>
+          </properties>
+          <properties name="yAxisTypeList" value="gauge"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisSelectedTypes">
+            <values>gauge</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisAllTypes">
+            <values>gauge</values>
+          </properties>
+          <properties name="timeFilter" value="1" type="INTEGER"/>
+          <properties name="HOURLY" value="1" type="INTEGER"/>
+          <properties name="DAILY" value="1" type="INTEGER"/>
+          <properties name="WEEKLY" value="1" type="INTEGER"/>
+          <properties name="MONTHLY" value="1" type="INTEGER"/>
+          <properties name="QUATERLY" value="1" type="INTEGER"/>
+          <properties name="YEARLY" value="1" type="INTEGER"/>
+          <properties name="fieldLabel" value="Label"/>
+          <properties name="valueType" value="STRING"/>
+          <properties name="rangeStart1" value="0" type="INTEGER"/>
+          <properties name="rangeEnd1" value="30" type="INTEGER"/>
+          <properties name="rangeStart2" value="30" type="INTEGER"/>
+          <properties name="rangeEnd2" value="60" type="INTEGER"/>
+          <properties name="rangeStart3" value="60" type="INTEGER"/>
+          <properties name="rangeEnd3" value="100" type="INTEGER"/>
+          <properties name="rangeColor1" value="#8CA608"/>
+          <properties name="rangeColor2" value="#3399CC"/>
+          <properties name="rangeColor3" value="#D2A01A"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="rangeFromValues">
+            <values>0</values>
+            <values>61</values>
+            <values>181</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="rangeToValues">
+            <values>60</values>
+            <values>180</values>
+            <values>300</values>
+          </properties>
+          <properties xsi:type="uitemplate:ArrayProperty" name="rangeAllColors">
+            <values>#8CA608</values>
+            <values>#CC7014</values>
+            <values>#A60001</values>
+          </properties>
+          <properties name="rangeColorList" value="#363636"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="xAxisFieldsValueType"/>
+          <properties xsi:type="uitemplate:ArrayProperty" name="yAxisFieldsValueType">
+            <values>FLOAT</values>
+          </properties>
+          <properties name="inputActionModel" value=""/>
+          <properties name="requiredUserInputsNames" value=""/>
+          <properties name="requiredUserInputsLabels" value=""/>
+          <properties name="rangeForegroundColor" value="#FFFFFF"/>
+          <properties name="gaugePanelWidth" value="500" type="INTEGER"/>
+          <properties name="gaugePanelHeight" value="350" type="INTEGER"/>
+          <properties name="xcpId" value="average_time"/>
+          <properties xsi:type="uitemplate:ObjectProperty" name="s0ave_average_of_claim_proc_format">
+            <formatter componentDefinitionId="xcp_float_formatter">
+              <properties name="xtype" value="xcp_float_formatter"/>
+              <properties name="decimalPrecision" value="2" type="INTEGER"/>
+              <properties name="useThousandSeparator" value="true" type="BOOLEAN"/>
+              <properties name="separatorStyle" value="LOCALE"/>
+              <properties name="negativeNumberStyle" value="FORMAT_MINUS_SIGN_STYLE_NONE"/>
+            </formatter>
+          </properties>
+        </children>
+      </children>
+    </children>
+  </rootContainer>
+</uitemplate:Page>

@@ -107,6 +107,7 @@
         <properties name="halign" value="right"/>
         <properties name="valign" value="top"/>
         <properties name="xcpId" value="columnhbox"/>
+        <properties name="tooltip" value=""/>
         <children componentDefinitionId="xcp_button" dataService="//@dataActions[name='da_def_checkout_dm_document_1']">
           <properties name="text" value="Edit"/>
           <properties xsi:type="uitemplate:ObjectProperty" name="action">
@@ -312,7 +313,7 @@
               <properties name="hidden" value=""/>
               <properties name="tooltip" value=""/>
               <properties name="disableImgLayout" value="false" type="BOOLEAN"/>
-              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="ifThenElse(claim_documents.fragments.relevant_document.relevant, '&lt;img src=&quot;Artifacts/Resources/bird.png&quot;/>', '')"/>
+              <properties xsi:type="uitemplate:DataboundProperty" name="value" value="ifThenElse(claim_documents.fragments.relevant_document.relevant, '&lt;img src=&quot;Artifacts/Resources/bird.jpg&quot;/>', '')"/>
               <properties name="xcpId" value="marked"/>
             </children>
             <children componentDefinitionId="xcp_value_display">

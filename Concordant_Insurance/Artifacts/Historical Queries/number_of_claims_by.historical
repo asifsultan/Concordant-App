@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasourcehistorical:HistoricalDatasource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:datasourceaggregation="http://documentum.emc.com/artifact/datasourceaggregation" xmlns:datasourcecommon="http://documentum.emc.com/artifact/datasourcecommon" xmlns:datasourcehistorical="http://documentum.emc.com/artifact/datasourcehistorical" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:cia:com.emc.xcp.artifact.datasourcehistorical:Artifacts/Historical Queries/number_of_claims_by.historical" categoryId="com.emc.xcp.artifact.datasourcehistorical" name="number_of_claims_by" label="Number of Claims  by Status" rootEntity="//@datasourceEntities.0" firstCalculationLevel="//@datasourceCalculations.0">
+  <datasourceEntities xsi:type="datasourcehistorical:DatasourceEntity" instanceId="71IeASrpk*Iav5VuX4mIVO" path="claim" artifactType="Folder">
+    <source href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+    <fields xsi:type="datasourcecommon:DatasourceField" name="a_r_object_id" label="Object ID" instanceId="2ev68Bn6AAR8V2eTbPKyKC" fieldPath="event.claim.r_object_id" event="//@subscribedEvents.0">
+      <source href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </fields>
+    <fields xsi:type="datasourcecommon:DatasourceField" name="claim_status" label="Claim Status" instanceId="8*vXX+ab4Kj93cnI0bbt2W" fieldPath="event.claim.claim_status" columnIndex="1" event="//@subscribedEvents.0">
+      <source href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#//@attributes[name='claim_status']"/>
+    </fields>
+  </datasourceEntities>
+  <datasourceCalculations label="Basic step" nextLevel="//@datasourceCalculations.1">
+    <calculationFields name="a_r_object_id" label="Object ID" instanceId="cTzCkU7R4BMbF3ZFL9Ln+P" source="//@datasourceEntities.0/@fields.0" nextCalculation="//@datasourceCalculations.1/@calculationFields.0">
+      <dataType xsi:type="nsAttributeDatatypes:StringType" length="16"/>
+    </calculationFields>
+    <calculationFields name="claim_status" label="Claim Status" instanceId="7BAcM1Hi4U4aLr8PtfnC9F" columnIndex="1" source="//@datasourceEntities.0/@fields.1" nextCalculation="//@datasourceCalculations.1/@calculationFields.1">
+      <dataType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+      </dataType>
+    </calculationFields>
+  </datasourceCalculations>
+  <datasourceCalculations label="Step 1" levelIndex="1" prevLevel="//@datasourceCalculations.0">
+    <calculationFields xsi:type="datasourceaggregation:AggregationField" name="s0cou_a_r_object_id" label="Count of Object ID" instanceId="dgpGizmMA25aONIRrOpki3" source="//@datasourceEntities.0/@fields.0" prevCalculation="//@datasourceCalculations.0/@calculationFields.0" function="Count">
+      <dataType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </calculationFields>
+    <calculationFields xsi:type="datasourceaggregation:AggregationField" name="s1gro_claim_status" label="Claim Status" instanceId="fVVRMqxbQFJbgeh7R+mbbg" columnIndex="1" source="//@datasourceEntities.0/@fields.1" prevCalculation="//@datasourceCalculations.0/@calculationFields.1" function="Group by">
+      <dataType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+      </dataType>
+    </calculationFields>
+  </datasourceCalculations>
+  <subscribedEvents>
+    <event href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#//@eventConfigs[label='Clmain%20Processed']"/>
+    <source href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+  </subscribedEvents>
+  <dataServiceContracts xsi:type="nsDataserviceContract:DataSourceContract" categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="number_of_claims_by" label="Number of Claims  by Status" implCategoryId="com.emc.xcp.artifact.datasourcehistorical">
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="s0cou_a_r_object_id" label="Count of Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="s1gro_claim_status" label="Claim Status">
+          <attributeType xsi:type="nsPicklist:PickListType">
+            <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+          </attributeType>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement name="claim">
+      <dataModel href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+    </primaryElement>
+  </dataServiceContracts>
+  <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="number_of_claims_by" label="Number of Claims  by Status" implCategoryId="com.emc.xcp.artifact.datasourcehistorical">
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="s0cou_a_r_object_id" label="Count of Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="s1gro_claim_status" label="Claim Status">
+          <attributeType xsi:type="nsPicklist:PickListType">
+            <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+          </attributeType>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement name="claim">
+      <dataModel href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+    </primaryElement>
+    <actionType type="Export"/>
+  </dataServiceContracts>
+</datasourcehistorical:HistoricalDatasource>

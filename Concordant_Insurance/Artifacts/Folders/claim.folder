@@ -64,6 +64,10 @@
     </action>
     <condition exprStr=""/>
   </eventConfigs>
+  <eventConfigs label="Clmain Processed" description="">
+    <triggerType type="UPDATED"/>
+    <condition exprStr="event.claim.claim_status == 2 OR event.claim.claim_status ==3"/>
+  </eventConfigs>
   <accessControlPolicy inheritedFromParentFolder="true"/>
   <defaultFolderPath exprStr="'/Insurance'"/>
   <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_claim" label="Create Claim" implCategoryId="com.emc.xcp.artifact.folder">

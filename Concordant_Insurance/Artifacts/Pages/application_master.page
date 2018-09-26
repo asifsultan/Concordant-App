@@ -165,6 +165,27 @@
             <properties name="navUrlParams" value=""/>
             <properties name="xcpId" value="search"/>
           </children>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button">
+            <properties name="text" value="Reports"/>
+            <properties name="iconCls" value=""/>
+            <properties name="hidden" value=""/>
+            <properties name="disabled" value=""/>
+            <properties name="cls" value=""/>
+            <properties name="tooltip" value=""/>
+            <properties name="navType" value="page_static"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_reports">
+              <data selectionName="reports" selectionLabel="Reports">
+                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/reports.page#/"/>
+              </data>
+            </properties>
+            <properties name="navPageIdExpr" value=""/>
+            <properties name="navUrlExpr" value=""/>
+            <properties name="navObjectId" value=""/>
+            <properties name="navToNewTab" value="" type="BOOLEAN"/>
+            <properties name="navNewTabTarget" value=""/>
+            <properties name="navUrlParams" value=""/>
+            <properties name="xcpId" value="reports"/>
+          </children>
           <children componentDefinitionId="xcp_user_button">
             <properties name="cls" value=""/>
             <properties name="xcpId" value="user_button"/>
